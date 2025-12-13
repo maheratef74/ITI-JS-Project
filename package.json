@@ -1,0 +1,11 @@
+{
+  "name": "iti-js-project",
+  "version": "1.0.0",
+  "description": "ITI JS Project scaffold",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx http-server -c-1 . -p 8080"
+  },
+  "author": "",
+  "license": "MIT"
+}
