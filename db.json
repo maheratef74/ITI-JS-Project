@@ -1,0 +1,121 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "It Statistics Data Science And Business Analysis",
+      "category": "Digital Marketing",
+      "rating": 4.8,
+      "ratingCount": 15,
+      "price": 40.0,
+      "lessons": 7,
+      "duration": "1hr 30m",
+      "students": 20,
+      "instructor": "Savannah",
+      "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=400&h=250&fit=crop"
+    },
+    {
+      "id": 2,
+      "title": "Beginner Adobe Illustrator For Graphic Design",
+      "category": "Digital Marketing",
+      "rating": 4.5,
+      "ratingCount": 18,
+      "price": 60.5,
+      "lessons": 8,
+      "duration": "1hr 30m",
+      "students": 20,
+      "instructor": "Charles",
+      "image": "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=400&h=250&fit=crop"
+    },
+    {
+      "id": 3,
+      "title": "Starting SEO As Your Home Based Business",
+      "category": "Digital Marketing",
+      "rating": 4.0,
+      "ratingCount": 20,
+      "price": 40.0,
+      "lessons": 9,
+      "duration": "1hr 30m",
+      "students": 20,
+      "instructor": "Morgan",
+      "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=250&fit=crop"
+    },
+    {
+      "id": 4,
+      "title": "Beginner Adobe Illustrator For Graphic Design",
+      "category": "Digital Marketing",
+      "rating": 4.9,
+      "ratingCount": 16,
+      "price": 50.0,
+      "lessons": 7,
+      "duration": "1hr 30m",
+      "students": 20,
+      "instructor": "Savannah",
+      "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=250&fit=crop"
+    },
+    {
+      "id": 5,
+      "title": "It Statistics Data Science And Business Analysis",
+      "category": "Digital Marketing",
+      "rating": 4.6,
+      "ratingCount": 19,
+      "price": 55.0,
+      "lessons": 8,
+      "duration": "1hr 30m",
+      "students": 20,
+      "instructor": "Morgan",
+      "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&h=250&fit=crop"
+    },
+    {
+      "id": 6,
+      "title": "Starting SEO As Your Home Based Business",
+      "category": "Digital Marketing",
+      "rating": 4.4,
+      "ratingCount": 22,
+      "price": 60.0,
+      "lessons": 10,
+      "duration": "1hr 30m",
+      "students": 20,
+      "instructor": "Charles",
+      "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&h=250&fit=crop"
+    },
+    {
+      "id": 7,
+      "title": "Advanced JavaScript Programming Course",
+      "category": "Digital Marketing",
+      "rating": 4.7,
+      "ratingCount": 25,
+      "price": 65.0,
+      "lessons": 12,
+      "duration": "2hr 00m",
+      "students": 30,
+      "instructor": "Savannah",
+      "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=250&fit=crop"
+    },
+    {
+      "id": 8,
+      "title": "UI/UX Design Fundamentals",
+      "category": "Digital Marketing",
+      "rating": 4.8,
+      "ratingCount": 21,
+      "price": 70.0,
+      "lessons": 15,
+      "duration": "2hr 30m",
+      "students": 25,
+      "instructor": "Morgan",
+      "image": "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=400&h=250&fit=crop"
+    },
+    {
+      "id": 9,
+      "title": "Digital Marketing Masterclass",
+      "category": "Digital Marketing",
+      "rating": 4.9,
+      "ratingCount": 30,
+      "price": 75.0,
+      "lessons": 20,
+      "duration": "3hr 00m",
+      "students": 40,
+      "instructor": "Charles",
+      "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&h=250&fit=crop"
+    }
+  ]
+}
