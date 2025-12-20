@@ -12,7 +12,6 @@
       "duration": "9.00AM - 01.00 PM",
       "students": 20,
       "instructor": "Savannah Nguyen",
-      "instructorDescription": "Savannah Nguyen is a passionate full-stack developer with over 10 years of experience. She has taught thousands of students and loves making complex topics easy to understand.",
       "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&h=500&fit=crop",
       "guarantee": "29-Day Money-Back Guarantee",
       "enrolled": 100,
@@ -22,10 +21,8 @@
       "language": "English",
       "classTime": "4:00 PM - 6:00 PM",
       "startDate": "Start Anytime",
-      "description": "This complete web development course takes you from beginner to confident developer. You'll learn HTML, CSS, JavaScript, and build real projects step by step.",
-      "whatLearn": "Build modern responsive websites · Master HTML, CSS & JavaScript · Create interactive web apps · Understand basic backend concepts",
-      "curriculumDescription": "The course is divided into 10 clear sections starting with basics and ending with full projects. Each lesson includes video lectures, code examples, and quizzes.",
-      "reviewsDescription": "Students love the clear explanations and practical projects. Many have built their first websites and landed freelance jobs after completing this course."
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "whatLearn": "Master modern web development from scratch including HTML, CSS, JavaScript, responsive design, and basic backend concepts. Build real projects and get ready for freelance or job opportunities."
     },
     {
       "id": 2,
@@ -39,7 +36,6 @@
       "duration": "1hr 30min",
       "students": 20,
       "instructor": "Charles Thompson",
-      "instructorDescription": "Charles Thompson is a professional graphic designer and Adobe expert. He has worked with big brands and enjoys teaching beginners how to create beautiful designs.",
       "image": "https://images.unsplash.com/photo-1542744094-3a31f272c490?w=800&h=500&fit=crop",
       "guarantee": "29-Day Money-Back Guarantee",
       "enrolled": 120,
@@ -49,10 +45,8 @@
       "language": "English",
       "classTime": "9:00 AM - 1:00 PM",
       "startDate": "Start Anytime",
-      "description": "Perfect for beginners who want to learn Adobe Illustrator. Create logos, icons, and illustrations from scratch with easy-to-follow lessons.",
-      "whatLearn": "Master Illustrator tools · Design professional logos · Create vector illustrations · Work with colors and typography",
-      "curriculumDescription": "8 structured sections covering everything from basic tools to advanced techniques. Includes practical exercises and project files.",
-      "reviewsDescription": "Beginners especially love how quickly they can create professional-looking designs. Many students made their first logo within weeks."
+      "description": "Learn Adobe Illustrator from zero to professional level. Create logos, icons, illustrations, and vector graphics used in real design projects.",
+      "whatLearn": "Master vector tools, create professional logos and illustrations, work with colors, typography, and export for print/web."
     },
     {
       "id": 3,
@@ -66,7 +60,6 @@
       "duration": "1hr 30min",
       "students": 20,
       "instructor": "Morgan Freeman",
-      "instructorDescription": "Morgan Freeman has run a successful SEO agency for 15 years. He now teaches others how to start their own profitable SEO business from home.",
       "image": "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=500&fit=crop",
       "guarantee": "29-Day Money-Back Guarantee",
       "enrolled": 130,
@@ -76,10 +69,8 @@
       "language": "English",
       "classTime": "4:00 PM - 6:00 PM",
       "startDate": "Start Anytime",
-      "description": "Learn how to start and grow an SEO business from home. Perfect for anyone wanting to make money online with flexible hours.",
-      "whatLearn": "SEO fundamentals · Keyword research · Get and keep clients · Rank websites on Google",
-      "curriculumDescription": "9 practical modules focused on real-world SEO strategies and client management. Includes templates and tools.",
-      "reviewsDescription": "Many students started earning money within months. They appreciate the honest, no-fluff approach to building an online business."
+      "description": "Turn SEO into a profitable home business. Learn keyword research, on-page optimization, link building, and client acquisition strategies.",
+      "whatLearn": "Complete SEO fundamentals, rank websites on Google, attract clients, and build a sustainable online business."
     },
     {
       "id": 4,
@@ -93,7 +84,6 @@
       "duration": "1hr 30min",
       "students": 20,
       "instructor": "Savannah Nguyen",
-      "instructorDescription": "Savannah Nguyen is a passionate full-stack developer with over 10 years of experience. She has taught thousands of students and loves making complex topics easy to understand.",
       "image": "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=500&fit=crop",
       "guarantee": "29-Day Money-Back Guarantee",
       "enrolled": 140,
@@ -103,10 +93,8 @@
       "language": "English",
       "classTime": "9:00 AM - 1:00 PM",
       "startDate": "Start Anytime",
-      "description": "Another excellent beginner Illustrator course with a slightly different teaching style focused on creative projects.",
-      "whatLearn": "Create beautiful vector graphics · Design icons and patterns · Master essential tools quickly",
-      "curriculumDescription": "7 focused sections with creative projects that help you build a portfolio from day one.",
-      "reviewsDescription": "Students love the creative approach and quick results. Many created portfolio pieces they're proud of."
+      "description": "Comprehensive beginner course covering all essential Adobe Illustrator tools and techniques for graphic design.",
+      "whatLearn": "Create stunning vector graphics, logos, and illustrations with confidence using industry-standard tools."
     },
     {
       "id": 5,
@@ -120,7 +108,6 @@
       "duration": "1hr 30min",
       "students": 20,
       "instructor": "Morgan Freeman",
-      "instructorDescription": "Morgan Freeman has run a successful SEO agency for 15 years. He now teaches others how to start their own profitable SEO business from home.",
       "image": "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=800&h=500&fit=crop",
       "guarantee": "29-Day Money-Back Guarantee",
       "enrolled": 150,
@@ -130,10 +117,8 @@
       "language": "English",
       "classTime": "4:00 PM - 6:00 PM",
       "startDate": "Start Anytime",
-      "description": "Learn practical data analysis and statistics for business decisions. No heavy math required.",
-      "whatLearn": "Analyze business data · Use Excel & Python basics · Make data-driven decisions",
-      "curriculumDescription": "8 modules combining theory with real business examples and hands-on exercises.",
-      "reviewsDescription": "Business professionals appreciate the practical focus. Many improved their work performance immediately."
+      "description": "Learn data science, statistics, and business analysis tools to make data-driven decisions.",
+      "whatLearn": "Analyze data effectively, use statistical methods, and apply insights to real business problems."
     },
     {
       "id": 6,
@@ -147,7 +132,6 @@
       "duration": "1hr 30min",
       "students": 20,
       "instructor": "Charles Thompson",
-      "instructorDescription": "Charles Thompson is a professional graphic designer and Adobe expert. He has worked with big brands and enjoys teaching beginners how to create beautiful designs.",
       "image": "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=500&fit=crop",
       "guarantee": "29-Day Money-Back Guarantee",
       "enrolled": 160,
@@ -157,10 +141,8 @@
       "language": "English",
       "classTime": "9:00 AM - 1:00 PM",
       "startDate": "Start Anytime",
-      "description": "Advanced SEO strategies for building a sustainable home business with recurring clients.",
-      "whatLearn": "Advanced ranking techniques · Client retention · Scale your SEO services",
-      "curriculumDescription": "10 in-depth modules with case studies and proven strategies that work today.",
-      "reviewsDescription": "Students who followed the steps report consistent monthly income from SEO services."
+      "description": "Complete guide to starting and growing an SEO business from home with practical strategies.",
+      "whatLearn": "SEO techniques, client management, and scaling your home-based digital marketing business."
     },
     {
       "id": 7,
@@ -174,7 +156,6 @@
       "duration": "2hr 00min",
       "students": 30,
       "instructor": "Savannah Nguyen",
-      "instructorDescription": "Savannah Nguyen is a passionate full-stack developer with over 10 years of experience. She has taught thousands of students and loves making complex topics easy to understand.",
       "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=500&fit=crop",
       "guarantee": "29-Day Money-Back Guarantee",
       "enrolled": 170,
@@ -184,10 +165,8 @@
       "language": "English",
       "classTime": "4:00 PM - 6:00 PM",
       "startDate": "Start Anytime",
-      "description": "Take your JavaScript skills to the next level with modern features and best practices.",
-      "whatLearn": "ES6+ features · Asynchronous programming · Advanced patterns · Performance optimization",
-      "curriculumDescription": "12 challenging sections with complex projects that mirror real-world development.",
-      "reviewsDescription": "Experienced developers say this course filled their knowledge gaps and improved code quality significantly."
+      "description": "Deep dive into advanced JavaScript concepts and modern development practices.",
+      "whatLearn": "ES6+, asynchronous programming, functional programming, and building complex applications."
     },
     {
       "id": 8,
@@ -201,7 +180,6 @@
       "duration": "2hr 30min",
       "students": 25,
       "instructor": "Morgan Freeman",
-      "instructorDescription": "Morgan Freeman has run a successful SEO agency for 15 years. He now teaches others how to start their own profitable SEO business from home.",
       "image": "https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?w=800&h=500&fit=crop",
       "guarantee": "29-Day Money-Back Guarantee",
       "enrolled": 180,
@@ -211,10 +189,8 @@
       "language": "English",
       "classTime": "9:00 AM - 1:00 PM",
       "startDate": "Start Anytime",
-      "description": "Learn the fundamentals of user-centered design and create beautiful, functional interfaces.",
-      "whatLearn": "Design principles · User research · Wireframing & prototyping · Modern design tools",
-      "curriculumDescription": "15 comprehensive modules from research to final designs with real client brief simulations.",
-      "reviewsDescription": "Beginners feel confident designing professional interfaces after completing this well-structured course."
+      "description": "Learn the core principles of UI/UX design and create user-centered digital experiences.",
+      "whatLearn": "User research, wireframing, prototyping, and designing intuitive interfaces."
     },
     {
       "id": 9,
@@ -228,7 +204,6 @@
       "duration": "3hr 00min",
       "students": 40,
       "instructor": "Charles Thompson",
-      "instructorDescription": "Charles Thompson is a professional graphic designer and Adobe expert. He has worked with big brands and enjoys teaching beginners how to create beautiful designs.",
       "image": "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=500&fit=crop",
       "guarantee": "29-Day Money-Back Guarantee",
       "enrolled": 190,
@@ -238,10 +213,8 @@
       "language": "English",
       "classTime": "4:00 PM - 6:00 PM",
       "startDate": "Start Anytime",
-      "description": "Complete digital marketing training with proven strategies that get real results.",
-      "whatLearn": "Full-funnel marketing · All major channels · Campaign optimization · Measuring ROI",
-      "curriculumDescription": "20 in-depth modules covering every aspect of modern digital marketing with case studies.",
-      "reviewsDescription": "Marketing professionals and business owners report significant growth after applying the strategies taught."
+      "description": "Complete digital marketing training covering all major channels and strategies.",
+      "whatLearn": "SEO, social media marketing, email campaigns, PPC advertising, and analytics."
     }
   ]
 }
