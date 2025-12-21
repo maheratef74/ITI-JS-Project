@@ -61,7 +61,7 @@ if (!courseId) {
                     </div>
                 </div>
 
-                <!-- Sidebar -->
+                
                 <div class="body-right-div">
                     <div class="small-img">
                         <img src="${courseData.image}" alt="${courseData.title}">
