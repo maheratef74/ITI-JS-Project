@@ -6,23 +6,23 @@ let cart = [];
 
 // fetch courses data from api
 function fetchCourses() {
-    var xmlhttp = new XMLHttpRequest();
+  var xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.onreadystatechange = function() {
-        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-            coursesData = JSON.parse(xmlhttp.responseText);
-            console.log('Courses loaded:', coursesData);
-            renderCourses();
-        }
-        else if (xmlhttp.readyState == 4) {
-            console.error('Failed to load courses!');
-            document.getElementById('coursesGrid').innerHTML = 
-                '<p style="text-align: center; color: red; grid-column: 1/-1;">Failed to load courses. Please try again later.</p>';
-        }
-    };
+  xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      coursesData = JSON.parse(xmlhttp.responseText);
+      console.log('Courses loaded:', coursesData);
+      renderCourses();
+    }
+    else if (xmlhttp.readyState == 4) {
+      console.error('Failed to load courses!');
+      document.getElementById('coursesGrid').innerHTML =
+        '<p style="text-align: center; color: red; grid-column: 1/-1;">Failed to load courses. Please try again later.</p>';
+    }
+  };
 
-    xmlhttp.open("GET", "https://my-json-server.typicode.com/Mahmoudshar0/courses-mock-data/courses", true);
-    xmlhttp.send();
+  xmlhttp.open("GET", "https://my-json-server.typicode.com/Mahmoudshar0/courses-mock-data/courses", true);
+  xmlhttp.send();
 }
 
 function loadCart() {
@@ -81,18 +81,12 @@ function renderCart() {
         total += item.price;
         return `
                 <div class="cart-item">
-                    <img src="${item.image}" alt="${
-          item.title
-        }" class="cart-item-image">
+                    <img src="${item.image}" alt="${item.title}" class="cart-item-image">
                     <div class="cart-item-details">
                         <div class="cart-item-title">${item.title}</div>
-                        <div class="cart-item-price">$${item.price.toFixed(
-                          2
-                        )}</div>
+                        <div class="cart-item-price">$${item.price.toFixed(2)}</div>
                     </div>
-                    <button class="cart-item-remove" onclick="removeFromCart(${
-                      item.id
-                    })">Remove</button>
+                    <button class="cart-item-remove" onclick="removeFromCart(${item.id})">Remove</button>
                 </div>
             `;
       })
@@ -158,7 +152,7 @@ function sortCourses(sortType) {
   return sorted;
 }
 
-// render courses
+// render courses - مع التعديل لجعل الكارد كلها clickable
 function renderCourses() {
   const sortedCourses = sortCourses(currentSort);
   const coursesToShow = sortedCourses.slice(0, displayedCourses);
@@ -167,58 +161,39 @@ function renderCourses() {
   grid.innerHTML = coursesToShow
     .map(
       (course) => `
-                <div class="course-card">
-                    <div class="course-image">
-                        <img src="${course.image}" alt="${course.title}">
-                        <div class="course-category">${course.category}</div>
-                    </div>
-                    <div class="course-content">
-                        <div class="course-header">
-                            <div class="course-rating">
-                                <span class="stars">${"★".repeat(
-                                  Math.floor(course.rating)
-                                )}${"☆".repeat(
-                                          5 - Math.floor(course.rating)
-                                                  )}</span>
-                                <span class="rating-count">${course.rating} (${
-                                           course.ratingCount
-                                             })</span>
-                            </div>
-                            <div class="course-price">${course.price.toFixed(
-                              2
-                            )}</div>
-                        </div>
-                        <h3 class="course-title">${course.title}</h3>
-                        <div class="course-meta">
-                            <div class="meta-item">📚 ${
-                              course.lessons
-                            } Lesson</div>
-                            <div class="meta-item">⏱️ ${course.duration}</div>
-                            <div class="meta-item">👥 ${course.students}+</div>
-                        </div>
-                        <div class="course-footer">
-                            <div class="instructor">
-                                <img src="https://i.pravatar.cc/70?img=${
-                                  course.id
-                                }" alt="${
-                                        course.instructor
-                                    }" class="instructor-avatar">
-                                <span class="instructor-name">${
-                                  course.instructor
-                                }</span>
-                            </div>
-                            <div class="course-actions">
-                                <button class="btn btn-details" onclick="viewDetails(${
-                                  course.id
-                                })">Details</button>
-                                <button class="btn btn-cart" onclick="addToCart(${
-                                  course.id
-                                })">Add to Cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            `
+        <div class="course-card">
+          
+          <a href="./courseDetails.html?id=${course.id}" class="course-card-link" aria-label="View details of ${course.title}"></a>
+          <div class="course-image">
+            <img src="${course.image}" alt="${course.title}">
+            <div class="course-category">${course.category}</div>
+          </div>
+          <div class="course-content">
+            <div class="course-header">
+              <div class="course-rating">
+                <span class="stars">${"★".repeat(Math.floor(course.rating))}${"☆".repeat(5 - Math.floor(course.rating))}</span>
+                <span class="rating-count">${course.rating} (${course.ratingCount})</span>
+              </div>
+              <div class="course-price">$${course.price.toFixed(2)}</div>
+            </div>
+            <h3 class="course-title">${course.title}</h3>
+            <div class="course-meta">
+              <div class="meta-item">📚 ${course.lessons} Lesson</div>
+              <div class="meta-item">⏱️ ${course.duration}</div>
+              <div class="meta-item">👥 ${course.students}+</div>
+            </div>
+            <div class="course-footer">
+              <div class="instructor">
+                <img src="https://i.pravatar.cc/70?img=${course.id}" alt="${course.instructor}" class="instructor-avatar">
+                <span class="instructor-name">${course.instructor}</span>
+              </div>
+              <div class="course-actions">
+                <button class="btn btn-cart" onclick="event.stopPropagation(); event.preventDefault(); addToCart(${course.id})">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      `
     )
     .join("");
 
@@ -245,7 +220,7 @@ document.querySelectorAll(".sort-btn").forEach((btn) => {
       .forEach((b) => b.classList.remove("active"));
     this.classList.add("active");
     currentSort = this.dataset.sort;
-    displayedCourses = 6; 
+    displayedCourses = 6;
     renderCourses();
   });
 });
