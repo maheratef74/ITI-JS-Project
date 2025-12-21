@@ -21,7 +21,7 @@ function fetchCourses() {
     }
   };
 
-  xmlhttp.open("GET", "https://my-json-server.typicode.com/Mahmoudshar0/courses-mock-data/courses", true);
+  xmlhttp.open("GET", "https://my-json-server.typicode.com/maheratef74/ITI-JS-Project/courses", true);
   xmlhttp.send();
 }
 

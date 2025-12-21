@@ -1,15 +1,17 @@
 let courseDiv = document.getElementById("course");
-let courseId = new URLSearchParams(window.location.search).get('id'); 
-
+let courseId = new URLSearchParams(window.location.search).get('id');
+let item = {};
 if (!courseId) {
     courseDiv.innerHTML = "<p style='text-align:center;color:red;'>No course ID found in URL!</p>";
 } else {
-    fetch(`https://my-json-server.typicode.com/Mahmoudshar0/courses-mock-data/courses/${courseId}`)
+    fetch(`https://my-json-server.typicode.com/maheratef74/ITI-JS-Project/courses/${courseId}`)
         .then((res) => {
             if (!res.ok) throw new Error("Course not found");
             return res.json();
         })
         .then((courseData) => {
+            item = courseData;
+            console.log(item)
             const fullStars = Math.floor(courseData.rating);
             const emptyStars = 5 - fullStars;
             const starsHTML = '★'.repeat(fullStars) + '☆'.repeat(emptyStars);
@@ -74,6 +76,7 @@ if (!courseId) {
 
                     <button class="buy-now-btn">BUY NOW</button>
 
+
                     <div class="info-row">
                         <p>Start Date</p>
                         <p>${courseData.startDate}</p>
@@ -100,9 +103,39 @@ if (!courseId) {
                     </div>
                 </div>
             `;
+            let buyNowBtn = document.querySelector(".buy-now-btn");
+            buyNowBtn.addEventListener("click", function () {
+                addToSession(item);
+            });
+
+            function addToSession(item) {
+
+                let cart = sessionStorage.getItem("edunityCart");
+
+                if (cart) {
+                    cart = JSON.parse(cart);
+                } else {
+                    cart = [];
+                }
+
+                let exist = cart.find((c) => c.id === item.id);
+                if (exist) {
+                    alert("course already in cart");
+                    return;
+                }
+                cart.push(item);
+
+
+                sessionStorage.setItem("edunityCart", JSON.stringify(cart));
+
+                alert("course added to cart");
+            }
+
         })
         .catch((err) => {
             console.error(err);
             courseDiv.innerHTML = "<p style='text-align:center;color:red;'>Failed to load course. Please try again later.</p>";
         });
 }
+
+
