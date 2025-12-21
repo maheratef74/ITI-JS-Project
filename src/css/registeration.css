@@ -1,0 +1,174 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Epilogue";
+}
+
+/* page title */
+.pageTitle{
+  background-image: url("../images/registBackground.png");
+  padding-block: 60px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 50px;
+}
+.pageTitle .content{
+  position: relative;
+  text-align: center;
+}
+.pageTitle .content h1{
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  color: #0E2A46;
+  font-size: 50px;
+  text-align: center;
+}
+.pageTitle .content a{
+  text-decoration: none;
+  color: #0E2A46;
+  font-size: 12px;
+}
+.pageTitle .content span{
+  color: #FC6441;
+  font-size: 12px;
+}
+.pageTitle .content img{
+  position: absolute;
+  width: 40px;
+}
+.pageTitle .content .img1{
+  top: 10px;
+  left: 20px;
+}
+.pageTitle .content .img2{
+  top: 80%;
+  left: 20%;
+}
+.pageTitle .content .img3{
+  bottom: -40px;
+  right: 25%;
+}
+.pageTitle .content .img4{
+  top: -20px;
+  right: 10px;
+}
+
+/* --------------------------------- */
+
+/* form */
+.form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.form form{
+  background-color: #E2E1E1;
+  padding-inline: 40px;
+  padding-right: 40px;
+  padding-block: 50px;
+}
+.form form h2{
+  text-transform: uppercase;
+  padding-bottom: 5px;
+  border-bottom: 1px solid #cdcdcd;
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+.form form > div:not(:last-child){
+  position: relative;
+  transition: 0.3s;
+  margin-bottom: 10px;
+}
+.form form > div:not(:last-child)::before{
+  content: attr(name);
+  position: absolute;
+  transform: translateY(-50%);
+  top: 40%;
+  left: 10px;
+  font-size: 12px;
+  color: #777;
+}
+.form form > div:not(.formFooter) input{
+  border: 0px solid #9d9d9d;
+  transition: 0.3s;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 5px;
+  height: 50px;
+  width: 100%;
+  outline: 0 solid #FC6441;
+}
+.form form div input:focus{
+  /* outline: none; */
+  outline: 5px solid #FC6441;
+}
+.form form .formFooter{
+  display: flex;
+  position: relative;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.form form .formFooter input{
+  border: none;
+  background-color: #704FE6;
+  color: white;
+  padding: 11px;
+  border-radius: 20px;
+  padding-right: 50px;
+  transition: 0.3s;
+}
+.form form .formFooter input:hover{
+  background-color: #785DD7;
+}
+.form form .formFooter svg{
+  width: 37px;
+  height: 37px;
+  fill: white;
+  background-color: #785DD7;
+  border-radius: 50%;
+  position: absolute;
+  left: 67px;
+  bottom: 1px;
+}
+.form form .oath .icons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-left: 10px;
+}
+.form form .formFooter .oath{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-left: 30px;
+}
+.form form .formFooter .oath p{
+  font-size: 13px;
+}
+
+.form form .oath .icons img{
+  border-radius: 50%;
+}
+.form form .oath .icons img{
+  width: 30px;
+}
+.form form p:last-child{
+  margin-top: 30px;
+  color: #777;
+}
+.form form p:last-child a{
+  text-decoration: none;
+  color: #704FE6;
+}
+.form > img{
+  width: 470px;
+}
