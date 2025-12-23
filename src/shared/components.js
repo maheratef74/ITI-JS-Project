@@ -40,9 +40,63 @@
     });
   }
 
+  static generateBreadcrumb() {
+    const currentPage = window.location.pathname.split("/").pop();
+    const breadcrumbContainer = document.getElementById("breadcrumbContainer");
+    const breadcrumb = document.getElementById("breadcrumb");
+
+    if (!breadcrumb) return;
+
+    // Page mapping for breadcrumb
+    const pageMap = {
+      "home.html": { name: "Home" },
+      "courses.html": { name: "Courses" },
+      "courseDetails.html": { name: "Course Details" },
+      "aboutUs.html": { name: "About Us" },
+      "cart.html": { name: "Cart" },
+      "login.html": { name: "Login" },
+      "registeration.html": { name: "Registration" },
+    };
+
+    // Hide breadcrumb on home page
+    if (currentPage === "home.html" || currentPage === "") {
+      if (breadcrumbContainer) {
+        breadcrumbContainer.classList.add("hide");
+      }
+      return;
+    }
+
+    // Show breadcrumb on other pages
+    if (breadcrumbContainer) {
+      breadcrumbContainer.classList.remove("hide");
+    }
+
+    // Always start with Home
+    let breadcrumbHTML = `
+      <li class="breadcrumb-item">
+        <a href="./home.html" class="breadcrumb-link">Home</a>
+      </li>
+    `;
+
+    // Add current page
+    if (pageMap[currentPage]) {
+      breadcrumbHTML += `
+        <li class="breadcrumb-item">
+          <span class="breadcrumb-separator">//</span>
+        </li>
+        <li class="breadcrumb-item">
+          <span class="breadcrumb-current">${pageMap[currentPage].name}</span>
+        </li>
+      `;
+    }
+
+    breadcrumb.innerHTML = breadcrumbHTML;
+  }
+
   static async init() {
     await this.loadHeader();
     await this.loadFooter();
+    this.generateBreadcrumb();
   }
 }
 

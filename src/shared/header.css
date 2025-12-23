@@ -11,6 +11,65 @@
   z-index: 1000;
 }
 
+/* ==================== BREADCRUMB NAVIGATION ==================== */
+.breadcrumb-container {
+  background: #f8f9fa;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  padding: 12px 0;
+  position: sticky;
+  top: 70px;
+  z-index: 999;
+}
+
+.breadcrumb-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-link {
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 500;
+}
+
+.breadcrumb-link:hover {
+  color: #6c5ce7;
+}
+
+.breadcrumb-separator {
+  margin: 0 8px;
+  color: #d1d5db;
+  user-select: none;
+}
+
+.breadcrumb-current {
+  color: #6c5ce7;
+  font-weight: 600;
+}
+
+/* Hide breadcrumb on home page */
+.breadcrumb-container.hide {
+  display: none;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -365,6 +424,65 @@ nav {
   background: #5a4dd6;
 }
 
+/* ==================== BREADCRUMB NAVIGATION ==================== */
+.breadcrumb-container {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  padding: 12px 0;
+  position: sticky;
+  top: 70px;
+  z-index: 999;
+}
+
+.breadcrumb-wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.breadcrumb-item {
+  display: flex;
+  align-items: center;
+}
+
+.breadcrumb-link {
+  color: #6b7280;
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 500;
+}
+
+.breadcrumb-link:hover {
+  color: #6c5ce7;
+}
+
+.breadcrumb-separator {
+  margin: 0 8px;
+  color: #d1d5db;
+  user-select: none;
+}
+
+.breadcrumb-current {
+  color: #6c5ce7;
+  font-weight: 600;
+}
+
+/* Hide breadcrumb on home page */
+.breadcrumb-container.hide {
+  display: none;
+}
+
 /* ==================== TOAST NOTIFICATION ==================== */
 .toast {
   position: fixed;
@@ -392,6 +510,18 @@ nav {
 @media (max-width: 768px) {
   .header-nav {
     padding: 15px 20px;
+  }
+
+  .breadcrumb-wrapper {
+    padding: 0 20px;
+  }
+
+  .breadcrumb {
+    font-size: 13px;
+  }
+
+  .breadcrumb-separator {
+    margin: 0 6px;
   }
 
   .nav-menu {
