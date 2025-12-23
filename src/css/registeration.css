@@ -1,3 +1,6 @@
+:root{
+  /* --top: null; */
+}
 * {
   margin: 0;
   padding: 0;
@@ -84,14 +87,18 @@ body {
   transition: 0.3s;
   margin-bottom: 10px;
 }
-.form form > div:not(:last-child)::before{
+.form form > div:not(.formFooter)::before{
   content: attr(name);
   position: absolute;
   transform: translateY(-50%);
-  top: 40%;
-  left: 10px;
+  transition: 0.3s;
+  background-color: white;
+  padding: 5px;
+  border-radius: 5px;
+  top: var(--top, 40%);
+  left: var(--left,30px);
   font-size: 12px;
-  color: #777;
+  color: var(--col,#777);
 }
 .form form > div:not(.formFooter) input{
   border: 0px solid #9d9d9d;
@@ -123,6 +130,7 @@ body {
   border-radius: 20px;
   padding-right: 50px;
   transition: 0.3s;
+  cursor: pointer;
 }
 .form form .formFooter input:hover{
   background-color: #785DD7;
