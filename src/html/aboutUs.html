@@ -1,99 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - Edunity</title>
-    <link rel="stylesheet" href="../css/aboutUs.css">
-</head>
-<body>
+    <link rel="stylesheet" href="../css/aboutUs.css" />
+    <script src="../shared/components.js"></script>
+  </head>
+  <body>
+    <!-- Header and modals will be loaded by components.js -->
 
-    <div class="course-details">
-        <h1 id="h1-c-details">ABOUT US</h1>
-        <p id="p-c-details">Home / About Us</p>
+    <!-- Hero Section -->
+    <section class="about-hero">
+      <div class="about-hero-content">
+        <p class="hero-tag">ABOUT US</p>
+        <h1 class="hero-title">Empowering Learners Worldwide</h1>
+        <p class="hero-subtitle">
+          Building the future through accessible, high-quality online education
+        </p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="about-container">
+      <!-- Who We Are Section -->
+      <section class="about-section intro-section">
+        <div class="intro-grid">
+          <div class="intro-image">
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop"
+              alt="Students learning together"
+            />
+          </div>
+          <div class="intro-content">
+            <p class="section-tag">WHO WE ARE</p>
+            <h2 class="section-title">Leading Online Education Platform</h2>
+            <p class="section-text">
+              Edunity is a leading online education platform dedicated to
+              providing high-quality, accessible courses to learners worldwide.
+              Founded with the vision of making education inclusive and
+              lifelong, we offer a wide range of courses in technology, design,
+              business, and more.
+            </p>
+            <p class="section-text">
+              Our platform connects expert instructors with eager students,
+              fostering a community where knowledge is shared and skills are
+              built for the future.
+            </p>
+            <div class="intro-features">
+              <div class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span>Expert Instructors</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span>Industry-Relevant Courses</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span>Lifetime Access</span>
+              </div>
+              <div class="feature-item">
+                <span class="feature-icon">✓</span>
+                <span>Certified Programs</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mission Vision Values -->
+      <section class="about-section mvv-section">
+        <div class="section-header-center">
+          <p class="section-tag">OUR FOUNDATION</p>
+          <h2 class="section-title">Mission, Vision & Values</h2>
+        </div>
+        <div class="mvv-grid">
+          <div class="mvv-card">
+            <div class="mvv-icon">🎯</div>
+            <h3>Our Mission</h3>
+            <p>
+              To empower individuals through accessible, high-quality education
+              that drives personal and professional growth.
+            </p>
+          </div>
+          <div class="mvv-card">
+            <div class="mvv-icon">🔭</div>
+            <h3>Our Vision</h3>
+            <p>
+              To become the world's most trusted platform for online learning,
+              bridging gaps in education globally.
+            </p>
+          </div>
+          <div class="mvv-card">
+            <div class="mvv-icon">💎</div>
+            <h3>Our Values</h3>
+            <p>
+              Excellence, Inclusivity, Innovation, and Community-driven
+              learning.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Achievements Stats -->
+      <section class="about-section stats-section">
+        <div class="section-header-center">
+          <p class="section-tag">OUR ACHIEVEMENTS</p>
+          <h2 class="section-title">Making an Impact</h2>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">50,000+</div>
+            <div class="stat-label">Active Students</div>
+            <div class="stat-icon">👥</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">200+</div>
+            <div class="stat-label">Courses Available</div>
+            <div class="stat-icon">📚</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Satisfaction Rate</div>
+            <div class="stat-icon">⭐</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">1M+</div>
+            <div class="stat-label">Hours of Learning</div>
+            <div class="stat-icon">⏱️</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team Section -->
+      <section class="about-section team-section">
+        <div class="section-header-center">
+          <p class="section-tag">OUR TEAM</p>
+          <h2 class="section-title">Meet the People Behind Edunity</h2>
+        </div>
+        <div class="team-grid">
+          <div class="team-card">
+            <div class="team-image">
+              <img src="https://i.pravatar.cc/300?img=33" alt="John Doe" />
+              <div class="team-overlay">
+                <div class="team-social">
+                  <a href="#" class="social-icon">in</a>
+                  <a href="#" class="social-icon">𝕏</a>
+                </div>
+              </div>
+            </div>
+            <h4 class="team-name">John Doe</h4>
+            <p class="team-role">CEO & Founder</p>
+          </div>
+          <div class="team-card">
+            <div class="team-image">
+              <img src="https://i.pravatar.cc/300?img=44" alt="Jane Smith" />
+              <div class="team-overlay">
+                <div class="team-social">
+                  <a href="#" class="social-icon">in</a>
+                  <a href="#" class="social-icon">𝕏</a>
+                </div>
+              </div>
+            </div>
+            <h4 class="team-name">Jane Smith</h4>
+            <p class="team-role">Head of Education</p>
+          </div>
+          <div class="team-card">
+            <div class="team-image">
+              <img src="https://i.pravatar.cc/300?img=13" alt="Mike Johnson" />
+              <div class="team-overlay">
+                <div class="team-social">
+                  <a href="#" class="social-icon">in</a>
+                  <a href="#" class="social-icon">𝕏</a>
+                </div>
+              </div>
+            </div>
+            <h4 class="team-name">Mike Johnson</h4>
+            <p class="team-role">Lead Developer</p>
+          </div>
+          <div class="team-card">
+            <div class="team-image">
+              <img src="https://i.pravatar.cc/300?img=48" alt="Sarah Lee" />
+              <div class="team-overlay">
+                <div class="team-social">
+                  <a href="#" class="social-icon">in</a>
+                  <a href="#" class="social-icon">𝕏</a>
+                </div>
+              </div>
+            </div>
+            <h4 class="team-name">Sarah Lee</h4>
+            <p class="team-role">Marketing Director</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Call to Action -->
+      <section class="about-section cta-section">
+        <div class="cta-content">
+          <h2>Ready to Start Your Learning Journey?</h2>
+          <p>
+            Join thousands of students who are already transforming their
+            careers with Edunity
+          </p>
+          <div class="cta-buttons">
+            <a href="./courses.html" class="btn btn-primary">Browse Courses</a>
+            <a href="#contact" class="btn btn-secondary">Contact Us</a>
+          </div>
+        </div>
+      </section>
     </div>
 
-    <div id="course">
-        <div class="body-left-div">
-            <div class="div-main-img">
-                <img src="https://cdn.prod.website-files.com/63bdeeae55a65686045de37a/68b9e9d19787c3f24d5acb9c_AdobeStock_622454761.jpeg" alt="Happy students learning online">
-            </div>
-
-            <div class="about-section">
-                <h2>Who We Are</h2>
-                <p>Edunity is a leading online education platform dedicated to providing high-quality, accessible courses to learners worldwide. Founded with the vision of making education inclusive and lifelong, we offer a wide range of courses in technology, design, business, and more.</p>
-                <p>Our platform connects expert instructors with eager students, fostering a community where knowledge is shared and skills are built for the future.</p>
-            </div>
-
-            <div class="mission-grid">
-                <div class="mission-card">
-                    <img src="https://www.shutterstock.com/image-vector/mission-vision-values-icon-set-260nw-2572367259.jpg" alt="Mission Icon">
-                    <h3>Our Mission</h3>
-                    <p>To empower individuals through accessible, high-quality education that drives personal and professional growth.</p>
-                </div>
-                <div class="mission-card">
-                    <img src="https://static.vecteezy.com/system/resources/previews/034/345/536/non_2x/mission-vision-values-modern-flat-design-concept-icon-on-white-background-illustration-vector.jpg" alt="Vision Icon">
-                    <h3>Our Vision</h3>
-                    <p>To become the world's most trusted platform for online learning, bridging gaps in education globally.</p>
-                </div>
-                <div class="mission-card">
-                    <img src="https://www.shutterstock.com/image-vector/mission-vision-values-company-text-260nw-1589392246.jpg" alt="Values Icon">
-                    <h3>Our Values</h3>
-                    <p>Excellence, Inclusivity, Innovation, and Community-driven learning.</p>
-                </div>
-            </div>
-
-            <div class="about-section">
-                <h2>Our Achievements</h2>
-                <div class="stats">
-                    <div class="stat-item">
-                        <h3>50,000+</h3>
-                        <p>Active Students</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>200+</h3>
-                        <p>Courses Available</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>98%</h3>
-                        <p>Satisfaction Rate</p>
-                    </div>
-                    <div class="stat-item">
-                        <h3>1M+</h3>
-                        <p>Hours of Learning</p>
-                    </div>
-                </div>
-                
-            </div>
-
-            <div class="about-section">
-                <h2>Meet Our Team</h2>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <img src="https://static.vecteezy.com/system/resources/previews/060/248/503/non_2x/diverse-coworkers-collaborate-on-project-in-modern-workspace-with-documents-and-devices-team-members-seated-at-table-discussing-company-tasks-and-reports-as-tablet-displays-data-graphs-in-office-photo.jpg" alt="John Doe">
-                        <h4>John Doe</h4>
-                        <p>CEO & Founder</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="https://www.shutterstock.com/image-photo/team-members-leaning-over-laptop-260nw-2644802191.jpg" alt="Jane Smith">
-                        <h4>Jane Smith</h4>
-                        <p>Head of Education</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="https://www.shutterstock.com/image-photo/group-diverse-creative-team-members-260nw-2242410015.jpg" alt="Mike Johnson">
-                        <h4>Mike Johnson</h4>
-                        <p>Lead Developer</p>
-                    </div>
-                    <div class="team-member">
-                        <img src="https://www.eschoolnews.com/files/2024/04/digital-tools-AI-social-studies.jpeg" alt="Sarah Lee">
-                        <h4>Sarah Lee</h4>
-                        <p>Marketing Director</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-       
-
-</body>
+    <!-- Footer will be loaded by components.js -->
+  </body>
 </html>

@@ -1,0 +1,111 @@
+﻿<link rel="stylesheet" href="../shared/header.css" />
+
+<!-- Search Overlay -->
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-box">
+    <input
+      type="text"
+      class="search-input"
+      placeholder="Search courses, pages, blog..."
+    />
+    <button class="search-close" id="searchClose">×</button>
+  </div>
+</div>
+
+<!-- Toast Notification -->
+<div class="toast" id="toast"></div>
+
+<!-- Cart Modal -->
+<div class="cart-modal" id="cartModal">
+  <div class="cart-content">
+    <div class="cart-header">
+      <h2>🛒 Shopping Cart</h2>
+      <button class="cart-close" id="cartModalClose">×</button>
+    </div>
+    <div id="cartItems"></div>
+    <div class="cart-total" id="cartTotal" style="display: none">
+      <h3>Total: <span id="cartTotalAmount">$0.00</span></h3>
+    </div>
+    <div class="cart-actions" id="cartActions" style="display: none">
+      <button class="cart-btn cart-btn-clear" id="clearCartBtn">
+        Clear Cart
+      </button>
+      <button class="cart-btn cart-btn-checkout">Checkout</button>
+    </div>
+  </div>
+</div>
+
+<!-- Header Navigation -->
+<header class="header-nav">
+  <a href="./home.html" class="logo">
+    <svg
+      class="logo-icon"
+      viewBox="0 0 40 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path d="M20 5L5 12.5V27.5L20 35L35 27.5V12.5L20 5Z" fill="#6C5CE7" />
+      <path
+        d="M20 5L20 35M20 5L35 12.5M20 5L5 12.5"
+        stroke="#fff"
+        stroke-width="2"
+      />
+      <path d="M5 12.5L20 20L35 12.5" stroke="#fff" stroke-width="2" />
+    </svg>
+    <span>edunity</span>
+  </a>
+
+  <nav>
+    <ul class="nav-menu" id="navMenu">
+      <li class="nav-item">
+        <a
+          style="text-decoration: none"
+          href="./home.html"
+          class="nav-link"
+          data-page="home"
+          >Home</a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="./aboutUs.html" class="nav-link" data-page="aboutUs"
+          >About Us</a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="./courses.html" class="nav-link" data-page="courses"
+          >Courses</a
+        >
+      </li>
+      <li class="nav-item">
+        <a href="#contact" class="nav-link">Contact</a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="nav-icons">
+    <button class="icon-btn" id="searchBtn">🔍</button>
+    <a
+      href="./cart.html"
+      class="icon-btn"
+      style="
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+      "
+    >
+      🛒
+      <span class="cart-count" id="cartCount">0</span>
+    </a>
+    <div class="auth-buttons" id="authButtons">
+      <a href="./login.html" class="btn-login">Login</a>
+      <a href="./registeration.html" class="btn-signup">Sign Up</a>
+    </div>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,84 @@
+{
+  "testimonials": [
+    {
+      "id": 1,
+      "name": "Sarah Johnson",
+      "role": "Web Developer",
+      "avatar": "https://i.pravatar.cc/80?img=5",
+      "rating": 5,
+      "text": "The courses are incredibly well-structured and the instructors are top-notch. I've learned so much and advanced my career significantly. Highly recommend Edunity to anyone looking to upskill!"
+    },
+    {
+      "id": 2,
+      "name": "Michael Chen",
+      "role": "UI/UX Designer",
+      "avatar": "https://i.pravatar.cc/80?img=8",
+      "rating": 5,
+      "text": "As a beginner, I was nervous about learning design, but the step-by-step approach made it easy to follow. The community support is amazing, and I feel confident in my new skills!"
+    },
+    {
+      "id": 3,
+      "name": "Emily Rodriguez",
+      "role": "Marketing Specialist",
+      "avatar": "https://i.pravatar.cc/80?img=9",
+      "rating": 5,
+      "text": "I've tried many online learning platforms, but Edunity stands out. The quality of content, instructor expertise, and practical projects make it worth every penny. My career has transformed!"
+    },
+    {
+      "id": 4,
+      "name": "David Thompson",
+      "role": "Business Analyst",
+      "avatar": "https://i.pravatar.cc/80?img=12",
+      "rating": 5,
+      "text": "The flexibility of learning at my own pace while having access to expert instructors is perfect for my busy schedule. The courses are comprehensive and truly valuable for professional growth."
+    },
+    {
+      "id": 5,
+      "name": "Jessica Williams",
+      "role": "Graphic Designer",
+      "avatar": "https://i.pravatar.cc/80?img=15",
+      "rating": 5,
+      "text": "Outstanding platform! The instructors are passionate and knowledgeable. I appreciate the real-world projects and the certificate I received has already helped me land a better job. Thank you Edunity!"
+    },
+    {
+      "id": 6,
+      "name": "Sarah Johnson",
+      "role": "Web Developer",
+      "avatar": "https://i.pravatar.cc/80?img=5",
+      "rating": 5,
+      "text": "The courses are incredibly well-structured and the instructors are top-notch. I've learned so much and advanced my career significantly. Highly recommend Edunity to anyone looking to upskill!"
+    },
+    {
+      "id": 7,
+      "name": "Michael Chen",
+      "role": "UI/UX Designer",
+      "avatar": "https://i.pravatar.cc/80?img=8",
+      "rating": 5,
+      "text": "As a beginner, I was nervous about learning design, but the step-by-step approach made it easy to follow. The community support is amazing, and I feel confident in my new skills!"
+    },
+    {
+      "id": 8,
+      "name": "Emily Rodriguez",
+      "role": "Marketing Specialist",
+      "avatar": "https://i.pravatar.cc/80?img=9",
+      "rating": 5,
+      "text": "I've tried many online learning platforms, but Edunity stands out. The quality of content, instructor expertise, and practical projects make it worth every penny. My career has transformed!"
+    },
+    {
+      "id": 9,
+      "name": "David Thompson",
+      "role": "Business Analyst",
+      "avatar": "https://i.pravatar.cc/80?img=12",
+      "rating": 5,
+      "text": "The flexibility of learning at my own pace while having access to expert instructors is perfect for my busy schedule. The courses are comprehensive and truly valuable for professional growth."
+    },
+    {
+      "id": 10,
+      "name": "Jessica Williams",
+      "role": "Graphic Designer",
+      "avatar": "https://i.pravatar.cc/80?img=15",
+      "rating": 5,
+      "text": "Outstanding platform! The instructors are passionate and knowledgeable. I appreciate the real-world projects and the certificate I received has already helped me land a better job. Thank you Edunity!"
+    }
+  ]
+}

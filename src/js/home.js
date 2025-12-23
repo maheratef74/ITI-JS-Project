@@ -2,6 +2,7 @@
 const CONFIG = {
   API_URL:
     "https://my-json-server.typicode.com/Mahmoudshar0/courses-mock-data/courses",
+  TESTIMONIALS_URL: "../../TESTIMONIALS.json",
   COURSES_LIMIT: 6,
   CAROUSEL_AUTO_PLAY_INTERVAL: 5000,
   STORAGE_KEYS: {
@@ -294,6 +295,70 @@ class CoursesService {
   }
 }
 
+// ==================== TESTIMONIALS SERVICE ====================
+class TestimonialsService {
+  static async fetchTestimonials() {
+    try {
+      const response = await fetch(CONFIG.TESTIMONIALS_URL);
+      if (!response.ok) throw new Error("Failed to fetch testimonials");
+      const data = await response.json();
+      return data.testimonials || [];
+    } catch (error) {
+      console.error("Error fetching testimonials:", error);
+      NotificationService.show("Failed to load testimonials", "error");
+      return [];
+    }
+  }
+
+  static generateStars(rating) {
+    return "★".repeat(rating);
+  }
+
+  static createTestimonialCard(testimonial) {
+    const stars = this.generateStars(testimonial.rating);
+
+    return `
+      <div class="testimonial-card">
+        <div class="testimonial-stars">${stars}</div>
+        <p class="testimonial-text">"${testimonial.text}"</p>
+        <div class="testimonial-author">
+          <img
+            src="${testimonial.avatar}"
+            alt="${testimonial.name}"
+            class="testimonial-avatar"
+          />
+          <div class="testimonial-info">
+            <h4 class="testimonial-name">${testimonial.name}</h4>
+            <p class="testimonial-role">${testimonial.role}</p>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  static async renderTestimonials() {
+    const testimonialsContainer = DOMHelper.select("#testimonialsContainer");
+    if (!testimonialsContainer) return;
+
+    testimonialsContainer.innerHTML =
+      '<p style="text-align: center; padding: 40px;">Loading testimonials...</p>';
+
+    const testimonials = await this.fetchTestimonials();
+
+    if (testimonials.length === 0) {
+      testimonialsContainer.innerHTML =
+        '<p style="text-align: center; padding: 40px;">No testimonials available</p>';
+      return;
+    }
+
+    testimonialsContainer.innerHTML = testimonials
+      .map((testimonial) => this.createTestimonialCard(testimonial))
+      .join("");
+
+    return testimonials.length;
+  }
+}
+
 // ==================== CAROUSEL SERVICE ====================
 class CarouselService {
   constructor(containerId, dotsId, prevBtnId, nextBtnId) {
@@ -304,12 +369,17 @@ class CarouselService {
 
     if (!this.container) return;
 
-    this.cards = Array.from(this.container.children);
     this.currentIndex = 0;
     this.autoPlayInterval = null;
     this.cardsPerView = this.getCardsPerView();
 
-    this.init();
+    // Use a small delay to ensure DOM is ready
+    setTimeout(() => {
+      this.cards = Array.from(this.container.children);
+      if (this.cards.length > 0) {
+        this.init();
+      }
+    }, 100);
   }
 
   getCardsPerView() {
@@ -330,10 +400,11 @@ class CarouselService {
   createDots() {
     if (!this.dotsContainer) return;
 
-    const totalDots = Math.ceil(this.cards.length - this.cardsPerView + 1);
+    // Calculate how many slides we can show (total cards - cards per view + 1)
+    const totalSlides = Math.max(1, this.cards.length - this.cardsPerView + 1);
     this.dotsContainer.innerHTML = "";
 
-    for (let i = 0; i < totalDots; i++) {
+    for (let i = 0; i < totalSlides; i++) {
       const dot = DOMHelper.createElement("button", "carousel-dot");
       dot.addEventListener("click", () => this.goToSlide(i));
       this.dotsContainer.appendChild(dot);
@@ -385,6 +456,7 @@ class CarouselService {
       if (newCardsPerView !== this.cardsPerView) {
         this.cardsPerView = newCardsPerView;
         this.currentIndex = 0;
+        this.cards = Array.from(this.container.children);
         this.createDots();
         this.updateCarousel();
       }
@@ -392,10 +464,17 @@ class CarouselService {
   }
 
   updateCarousel() {
+    if (!this.cards || this.cards.length === 0) return;
+
+    // Calculate the width of one card including the gap
     const cardWidth = this.cards[0].offsetWidth;
     const gap = 30;
+
+    // Move by card width + gap for each slide
     const offset = -this.currentIndex * (cardWidth + gap);
+
     this.container.style.transform = `translateX(${offset}px)`;
+    this.container.style.transition = "transform 0.3s ease-in-out";
     this.updateDots();
   }
 
@@ -416,7 +495,9 @@ class CarouselService {
   }
 
   goToSlide(index) {
-    this.currentIndex = index;
+    // Ensure index is within valid bounds
+    const maxIndex = Math.max(0, this.cards.length - this.cardsPerView);
+    this.currentIndex = Math.max(0, Math.min(index, maxIndex));
     this.updateCarousel();
     this.resetAutoPlay();
   }
@@ -591,7 +672,10 @@ class HomePageApp {
     // Load and render courses
     await CoursesService.renderCourses();
 
-    // Initialize testimonials carousel
+    // Load and render testimonials
+    await TestimonialsService.renderTestimonials();
+
+    // Initialize testimonials carousel (after testimonials are loaded)
     new CarouselService(
       "#testimonialsContainer",
       "#carouselDots",
