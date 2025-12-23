@@ -228,6 +228,29 @@ nav {
   background: #5a4dd6;
 }
 
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-logout {
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 5px;
+  background: #ff6b6b;
+  color: #fff;
+  border: 1px solid #ff6b6b;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-logout:hover {
+  background: #ff5252;
+  border-color: #ff5252;
+}
+
 .hamburger {
   display: none;
   flex-direction: column;
@@ -254,50 +277,24 @@ nav {
   transform: rotate(-45deg) translate(7px, -6px);
 }
 
-/* ==================== SEARCH OVERLAY ==================== */
-.search-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: none;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 100px;
-  z-index: 2000;
+/* ==================== HEADER SEARCH INPUT ==================== */
+.header-search-input {
+  padding: 8px 15px;
+  border: 2px solid #e0e0e0;
+  border-radius: 20px;
+  font-size: 14px;
+  width: 200px;
+  transition: all 0.3s;
+  outline: none;
 }
 
-.search-overlay.active {
-  display: flex;
+.header-search-input:focus {
+  border-color: #6c5ce7;
+  box-shadow: 0 0 0 3px rgba(108, 92, 231, 0.1);
 }
 
-.search-box {
-  position: relative;
-  width: 90%;
-  max-width: 600px;
-}
-
-.search-input {
-  width: 100%;
-  padding: 20px 60px 20px 20px;
-  font-size: 18px;
-  border: none;
-  border-radius: 10px;
-  background: #fff;
-}
-
-.search-close {
-  position: absolute;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  background: none;
-  border: none;
-  font-size: 30px;
-  cursor: pointer;
-  color: #666;
+.header-search-input::placeholder {
+  color: #999;
 }
 
 /* ==================== CART MODAL ==================== */
@@ -569,6 +566,12 @@ nav {
   .btn-signup {
     padding: 6px 15px;
     font-size: 13px;
+  }
+
+  .header-search-input {
+    width: 150px;
+    font-size: 13px;
+    padding: 6px 12px;
   }
 
   .cart-modal {

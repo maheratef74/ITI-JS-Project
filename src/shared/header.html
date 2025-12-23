@@ -1,17 +1,5 @@
 ﻿<link rel="stylesheet" href="../shared/header.css" />
 
-<!-- Search Overlay -->
-<div class="search-overlay" id="searchOverlay">
-  <div class="search-box">
-    <input
-      type="text"
-      class="search-input"
-      placeholder="Search courses, pages, blog..."
-    />
-    <button class="search-close" id="searchClose">×</button>
-  </div>
-</div>
-
 <!-- Toast Notification -->
 <div class="toast" id="toast"></div>
 
@@ -83,7 +71,13 @@
   </nav>
 
   <div class="nav-icons">
-    <button class="icon-btn" id="searchBtn">🔍</button>
+    <input
+      type="text"
+      class="header-search-input"
+      id="headerSearchInput"
+      placeholder="Search courses..."
+      style="display: none"
+    />
     <a
       href="./cart.html"
       class="icon-btn"
@@ -101,6 +95,9 @@
     <div class="auth-buttons" id="authButtons">
       <a href="./login.html" class="btn-login">Login</a>
       <a href="./registeration.html" class="btn-signup">Sign Up</a>
+    </div>
+    <div class="user-menu" id="userMenu" style="display: none">
+      <button class="btn-logout" id="logoutBtn">Logout</button>
     </div>
     <div class="hamburger" id="hamburger">
       <span></span>

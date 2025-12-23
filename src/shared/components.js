@@ -22,6 +22,50 @@
     if (headerHTML) {
       this.insertComponent("body", headerHTML, "afterbegin");
       this.highlightActivePage();
+      this.initCartCounter();
+      this.handleAuthButtons();
+    }
+  }
+
+  static handleAuthButtons() {
+    const authButtonsContainer = document.getElementById("authButtons");
+    const userMenu = document.getElementById("userMenu");
+    if (!authButtonsContainer) return;
+
+    const token = sessionStorage.getItem("token");
+
+    if (token) {
+      // User is logged in (has token) - hide login/signup buttons, show logout button
+      authButtonsContainer.style.display = "none";
+      if (userMenu) {
+        userMenu.style.display = "flex";
+      }
+    } else {
+      // User is not logged in (no token) - show login/signup buttons, hide logout button
+      authButtonsContainer.style.display = "flex";
+      if (userMenu) {
+        userMenu.style.display = "none";
+      }
+    }
+
+    // Add logout button functionality
+    const logoutBtn = document.getElementById("logoutBtn");
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", () => {
+        if (confirm("Are you sure you want to logout?")) {
+          sessionStorage.removeItem("token");
+          window.location.href = "./login.html";
+        }
+      });
+    }
+  }
+
+  static initCartCounter() {
+    const cart = sessionStorage.getItem("edunityCart");
+    const cartCount = cart ? JSON.parse(cart).length : 0;
+    const cartCountElement = document.getElementById("cartCount");
+    if (cartCountElement) {
+      cartCountElement.textContent = cartCount;
     }
   }
 
@@ -29,6 +73,27 @@
     const footerHTML = await this.loadComponent("../shared/footer.html");
     if (footerHTML) {
       this.insertComponent("body", footerHTML, "beforeend");
+      this.initNewsletterForm();
+    }
+  }
+
+  static initNewsletterForm() {
+    const newsletterForm = document.getElementById("newsletterForm");
+    if (newsletterForm) {
+      newsletterForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const input = e.target.querySelector(".newsletter-input");
+        const message = document.getElementById("newsletterMessage");
+
+        if (input && input.value && message) {
+          message.classList.add("show");
+          input.value = "";
+
+          setTimeout(() => {
+            message.classList.remove("show");
+          }, 3000);
+        }
+      });
     }
   }
 
@@ -97,6 +162,7 @@
     await this.loadHeader();
     await this.loadFooter();
     this.generateBreadcrumb();
+    this.initCartCounter();
   }
 }
 

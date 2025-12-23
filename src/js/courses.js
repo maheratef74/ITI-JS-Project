@@ -1,8 +1,13 @@
 // ========== COURSE DATA ==========
 let coursesData = [];
-let displayedCourses = Infinity; // Show all courses
+let filteredCourses = []; // For search results
+let displayedCourses = 6; // Show 6 courses initially
 let currentSort = "default";
 let cart = [];
+
+// ========== PAGE PROTECTION ==========
+// Check authentication on page load using utility function
+checkAuthentication();
 
 // fetch courses data from api
 function fetchCourses() {
@@ -178,7 +183,13 @@ if (cartModalClose && cartModal) {
 }
 
 function sortCourses(sortType) {
-  let sorted = [...coursesData];
+  // Use filtered courses if search is active, otherwise use all courses
+  const coursesToSort =
+    filteredCourses.length > 0 ||
+    document.getElementById("headerSearchInput")?.value
+      ? filteredCourses
+      : coursesData;
+  let sorted = [...coursesToSort];
 
   switch (sortType) {
     case "price-low":
@@ -200,8 +211,17 @@ function sortCourses(sortType) {
 // render courses - مع التعديل لجعل الكارد كلها clickable
 function renderCourses() {
   console.log("renderCourses called");
+
+  // Use filtered courses if available
+  const dataToRender =
+    filteredCourses.length > 0 ||
+    document.getElementById("headerSearchInput")?.value
+      ? filteredCourses
+      : coursesData;
+
   console.log("coursesData:", coursesData);
-  console.log("coursesData.length:", coursesData.length);
+  console.log("filteredCourses:", filteredCourses);
+  console.log("dataToRender.length:", dataToRender.length);
 
   const sortedCourses = sortCourses(currentSort);
   const coursesToShow = sortedCourses.slice(0, displayedCourses);
@@ -267,12 +287,23 @@ function renderCourses() {
 
   // Hide Load More button if all courses are displayed
   const loadMoreBtn = document.getElementById("loadMoreBtn");
+  const totalCourses = dataToRender.length;
+
   if (loadMoreBtn) {
-    if (displayedCourses >= coursesData.length) {
+    if (displayedCourses >= totalCourses) {
       loadMoreBtn.style.display = "none";
     } else {
       loadMoreBtn.style.display = "block";
     }
+  }
+
+  // Show no results message if search has no matches
+  if (
+    dataToRender.length === 0 &&
+    document.getElementById("headerSearchInput")?.value
+  ) {
+    grid.innerHTML =
+      '<p style="text-align: center; color: #666; grid-column: 1/-1; padding: 40px; font-size: 18px;">No courses found matching your search.</p>';
   }
 }
 
@@ -280,7 +311,7 @@ function renderCourses() {
 const loadMoreBtn = document.getElementById("loadMoreBtn");
 if (loadMoreBtn) {
   loadMoreBtn.addEventListener("click", () => {
-    displayedCourses += 3;
+    displayedCourses += 6;
     renderCourses();
   });
 }
@@ -335,37 +366,6 @@ if (hamburger && navMenu) {
   });
 }
 
-// search
-const searchBtn = document.getElementById("searchBtn");
-const searchOverlay = document.getElementById("searchOverlay");
-const searchClose = document.getElementById("searchClose");
-
-if (searchBtn && searchOverlay) {
-  searchBtn.addEventListener("click", () => {
-    searchOverlay.classList.add("active");
-    const searchInput = document.querySelector(".search-input");
-    if (searchInput) searchInput.focus();
-  });
-}
-
-if (searchClose && searchOverlay) {
-  searchClose.addEventListener("click", () => {
-    searchOverlay.classList.remove("active");
-  });
-
-  searchOverlay.addEventListener("click", (e) => {
-    if (e.target === searchOverlay) {
-      searchOverlay.classList.remove("active");
-    }
-  });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && searchOverlay.classList.contains("active")) {
-      searchOverlay.classList.remove("active");
-    }
-  });
-}
-
 // smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -399,6 +399,48 @@ if (newsletterForm) {
     }
   });
 }
+
+// ========== REAL-TIME SEARCH ==========
+function initializeSearch() {
+  const searchInput = document.getElementById("headerSearchInput");
+
+  if (searchInput) {
+    // Show search input only on courses page
+    searchInput.style.display = "block";
+
+    // Real-time search with debouncing
+    let searchTimeout;
+    searchInput.addEventListener("input", (e) => {
+      clearTimeout(searchTimeout);
+
+      searchTimeout = setTimeout(() => {
+        const searchTerm = e.target.value.toLowerCase().trim();
+
+        if (searchTerm === "") {
+          // Reset to show all courses
+          filteredCourses = [];
+          displayedCourses = 6;
+        } else {
+          // Filter courses by title, category, or instructor
+          filteredCourses = coursesData.filter(
+            (course) =>
+              course.title.toLowerCase().includes(searchTerm) ||
+              course.category.toLowerCase().includes(searchTerm) ||
+              course.instructor.toLowerCase().includes(searchTerm)
+          );
+          displayedCourses = filteredCourses.length; // Show all search results
+        }
+
+        renderCourses();
+      }, 300); // 300ms debounce
+    });
+  }
+}
+
+// Initialize search after courses are loaded
+setTimeout(() => {
+  initializeSearch();
+}, 1000);
 
 // startup
 loadCart();

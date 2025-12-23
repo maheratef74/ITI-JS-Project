@@ -597,3 +597,51 @@ body {
     font-size: 13px;
   }
 }
+
+/* ========== VALIDATION ERROR STYLES ========== */
+.form-input.error {
+  border-color: #ef4444;
+  background-color: #fef2f2;
+}
+
+.form-input.error:focus {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
+}
+
+.error-message {
+  color: #ef4444;
+  font-size: 13px;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  animation: slideIn 0.2s ease-out;
+}
+
+.error-message::before {
+  content: "⚠";
+  font-size: 14px;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: linear-gradient(135deg, #9ca3af 0%, #9ca3af 100%);
+}
+
+.auth-btn:disabled:hover {
+  transform: none;
+  box-shadow: 0 4px 15px rgba(108, 92, 231, 0.2);
+}

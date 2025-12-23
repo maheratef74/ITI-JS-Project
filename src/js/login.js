@@ -1,33 +1,40 @@
-var form = document.getElementsByTagName("form")[0];
-var inputs = document.getElementsByClassName("inputs");
+// ========== LOGIN FORM HANDLING ==========
 
-for (let i = 0; i < inputs.length; i++) {
-  inputs[i].addEventListener("focus", function (e) {
-    var div = document.getElementsByName(e.currentTarget.name + "*")[0];
-    div.style?.setProperty("--top", "0%");
-    div.style.setProperty("--left", "10px");
-  })
-  inputs[i].addEventListener("blur", function (e) {
-    var div = document.getElementsByName(e.currentTarget.name + "*")[0];
-    div.style?.setProperty("--top", "40%");
-    div.style.setProperty("--left", "20px");
-  })
-}
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector(".auth-form");
+  const emailInput = document.getElementById("email");
+  const passwordInput = document.getElementById("password");
 
-form.addEventListener("submit", function (e) {
-  e.preventDefault();
-    if (!sessionStorage.getItem("email")) {
-      return;
-    }
-    if(inputs[0].value != sessionStorage.getItem("email") ){
-      alert("invalid credentials")
-      return;
-    }
-    if (inputs[1].value != sessionStorage.getItem("password")) {
-      alert("invalid credentials")
-      return;
-    }
-    alert("login successfully")
-  sessionStorage.setItem("token", Math.random()*1000000);
-  window.location.href ="aboutUs.html"
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const email = emailInput.value.trim();
+      const password = passwordInput.value.trim();
+
+      // Check if account exists
+      if (!sessionStorage.getItem("email")) {
+        alert("No account found. Please register first.");
+        return;
+      }
+
+      // Validate credentials
+      if (email !== sessionStorage.getItem("email")) {
+        alert("Invalid credentials");
+        return;
+      }
+      if (password !== sessionStorage.getItem("password")) {
+        alert("Invalid credentials");
+        return;
+      }
+
+      // Save credentials again to persist them
+      sessionStorage.setItem("email", email);
+      sessionStorage.setItem("password", password);
+      sessionStorage.setItem("token", Math.random() * 1000000);
+
+      alert("Login successful!");
+      window.location.href = "courses.html";
+    });
+  }
 });

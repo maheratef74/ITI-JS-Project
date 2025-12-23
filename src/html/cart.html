@@ -5,219 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping Cart - Edunity</title>
     <link rel="stylesheet" href="../css/general.css" />
-    <link rel="stylesheet" href="../css/courses.css" />
+    <link rel="stylesheet" href="../css/cart.css" />
     <script src="../shared/components.js"></script>
-    <style>
-      .cart-page {
-        max-width: 1200px;
-        margin: 80px auto;
-        padding: 40px 60px;
-      }
-
-      .cart-page-header {
-        margin-bottom: 40px;
-      }
-
-      .cart-page-header h1 {
-        font-size: 36px;
-        color: #1a1a1a;
-        margin-bottom: 10px;
-      }
-
-      .cart-page-header p {
-        color: #666;
-        font-size: 16px;
-      }
-
-      .cart-empty {
-        text-align: center;
-        padding: 80px 20px;
-      }
-
-      .cart-empty-icon {
-        font-size: 80px;
-        margin-bottom: 20px;
-      }
-
-      .cart-empty h2 {
-        font-size: 28px;
-        color: #1a1a1a;
-        margin-bottom: 10px;
-      }
-
-      .cart-empty p {
-        color: #666;
-        margin-bottom: 30px;
-      }
-
-      .cart-items-list {
-        background: #fff;
-        border-radius: 12px;
-        padding: 30px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        margin-bottom: 30px;
-      }
-
-      .cart-item {
-        display: flex;
-        align-items: center;
-        gap: 20px;
-        padding: 20px;
-        border-bottom: 1px solid #eee;
-      }
-
-      .cart-item:last-child {
-        border-bottom: none;
-      }
-
-      .cart-item-image {
-        width: 120px;
-        height: 90px;
-        border-radius: 8px;
-        overflow: hidden;
-        flex-shrink: 0;
-      }
-
-      .cart-item-image img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-      }
-
-      .cart-item-details {
-        flex: 1;
-      }
-
-      .cart-item-title {
-        font-size: 18px;
-        font-weight: 600;
-        color: #1a1a1a;
-        margin-bottom: 8px;
-      }
-
-      .cart-item-category {
-        color: #6c5ce7;
-        font-size: 14px;
-        margin-bottom: 5px;
-      }
-
-      .cart-item-rating {
-        color: #ffa500;
-        font-size: 14px;
-      }
-
-      .cart-item-price {
-        font-size: 24px;
-        font-weight: 700;
-        color: #6c5ce7;
-        margin-right: 20px;
-      }
-
-      .cart-item-remove {
-        background: #ff4444;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 6px;
-        cursor: pointer;
-        font-size: 14px;
-        transition: background 0.3s;
-      }
-
-      .cart-item-remove:hover {
-        background: #cc0000;
-      }
-
-      .cart-summary {
-        background: #f8f9fa;
-        border-radius: 12px;
-        padding: 30px;
-        max-width: 400px;
-        margin-left: auto;
-      }
-
-      .cart-summary h3 {
-        font-size: 24px;
-        margin-bottom: 20px;
-        color: #1a1a1a;
-      }
-
-      .cart-summary-row {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 15px;
-        font-size: 16px;
-      }
-
-      .cart-summary-row.total {
-        border-top: 2px solid #ddd;
-        padding-top: 15px;
-        margin-top: 15px;
-        font-size: 20px;
-        font-weight: 700;
-        color: #6c5ce7;
-      }
-
-      .cart-actions {
-        display: flex;
-        gap: 15px;
-        margin-top: 25px;
-      }
-
-      .btn-primary,
-      .btn-secondary {
-        flex: 1;
-        padding: 15px;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
-        font-weight: 600;
-        cursor: pointer;
-        transition: all 0.3s;
-      }
-
-      .btn-primary {
-        background: #6c5ce7;
-        color: white;
-      }
-
-      .btn-primary:hover {
-        background: #5648c7;
-        transform: translateY(-2px);
-      }
-
-      .btn-secondary {
-        background: white;
-        color: #6c5ce7;
-        border: 2px solid #6c5ce7;
-      }
-
-      .btn-secondary:hover {
-        background: #f8f7ff;
-      }
-
-      @media (max-width: 768px) {
-        .cart-page {
-          padding: 20px;
-          margin: 40px auto;
-        }
-
-        .cart-item {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .cart-summary {
-          max-width: 100%;
-        }
-
-        .cart-actions {
-          flex-direction: column;
-        }
-      }
-    </style>
+    <script src="../js/utils/auth.js"></script>
   </head>
   <body>
+    <script>
+      // Check authentication on page load
+      checkAuthentication();
+    </script>
     <!-- Header and modals will be loaded by components.js -->
 
     <div class="cart-page">
@@ -226,130 +22,97 @@
         <p>Review your selected courses before checkout</p>
       </div>
 
-      <div id="cartContent"></div>
+      <div id="cartContent">
+        <table class="cart-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Course Title</th>
+              <th>Price</th>
+              <th>Remove</th>
+            </tr>
+          </thead>
+          <tbody id="cartBody"></tbody>
+        </table>
+
+        <div class="cart-footer">
+          <div class="promo">
+            <input type="text" id="promoInput" placeholder="Coupon code" />
+            <button id="applyPromo">APPLY COUPON</button>
+          </div>
+
+          <div class="cart-total-box">
+            <h3>Cart Totals</h3>
+            <div class="line">
+              <span>Total</span>
+              <span id="totalPrice">$0</span>
+            </div>
+            <button class="checkout-btn">PROCEED TO PAYMENT</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- Footer will be loaded by components.js -->
 
     <script>
-      // Cart functionality
-      class CartPage {
-        constructor() {
-          this.cartItems = this.getCartItems();
-          this.render();
-        }
+      let courses = JSON.parse(sessionStorage.getItem("edunityCart")) || [];
+      let cartBody = document.getElementById("cartBody");
+      let totalPriceSpan = document.getElementById("totalPrice");
+      let cartContent = document.getElementById("cartContent");
 
-        getCartItems() {
-          const cart = localStorage.getItem("edunityCart");
-          return cart ? JSON.parse(cart) : [];
-        }
-
-        saveCart() {
-          localStorage.setItem("edunityCart", JSON.stringify(this.cartItems));
-          this.updateCartCount();
-        }
-
-        updateCartCount() {
-          const countElement = document.getElementById("cartCount");
-          if (countElement) {
-            countElement.textContent = this.cartItems.length;
-          }
-        }
-
-        removeItem(courseId) {
-          this.cartItems = this.cartItems.filter(
-            (item) => item.id !== courseId
-          );
-          this.saveCart();
-          this.render();
-        }
-
-        clearCart() {
-          if (confirm("Are you sure you want to clear your cart?")) {
-            this.cartItems = [];
-            this.saveCart();
-            this.render();
-          }
-        }
-
-        calculateTotal() {
-          return this.cartItems.reduce((sum, item) => sum + item.price, 0);
-        }
-
-        render() {
-          const container = document.getElementById("cartContent");
-
-          if (this.cartItems.length === 0) {
-            container.innerHTML = `
-              <div class="cart-empty">
-                <div class="cart-empty-icon">🛒</div>
-                <h2>Your cart is empty</h2>
-                <p>Start exploring our courses and add some to your cart!</p>
-                <a href="./courses.html" class="btn-primary" style="display: inline-block; padding: 15px 40px; text-decoration: none;">Browse Courses</a>
-              </div>
-            `;
-            return;
-          }
-
-          const total = this.calculateTotal();
-
-          container.innerHTML = `
-            <div class="cart-items-list">
-              ${this.cartItems
-                .map(
-                  (item) => `
-                <div class="cart-item">
-                  <div class="cart-item-image">
-                    <img src="${
-                      item.image || "https://via.placeholder.com/120x90"
-                    }" alt="${item.title}">
-                  </div>
-                  <div class="cart-item-details">
-                    <div class="cart-item-category">${
-                      item.category || "Course"
-                    }</div>
-                    <div class="cart-item-title">${item.title}</div>
-                    <div class="cart-item-rating">⭐ ${item.rating || "N/A"} ${
-                    item.reviews ? `(${item.reviews} reviews)` : ""
-                  }</div>
-                  </div>
-                  <div class="cart-item-price">$${item.price.toFixed(2)}</div>
-                  <button class="cart-item-remove" onclick="cartPage.removeItem(${
-                    item.id
-                  })">Remove</button>
-                </div>
-              `
-                )
-                .join("")}
-            </div>
-
-            <div class="cart-summary">
-              <h3>Order Summary</h3>
-              <div class="cart-summary-row">
-                <span>Subtotal:</span>
-                <span>$${total.toFixed(2)}</span>
-              </div>
-              <div class="cart-summary-row">
-                <span>Tax (0%):</span>
-                <span>$0.00</span>
-              </div>
-              <div class="cart-summary-row total">
-                <span>Total:</span>
-                <span>$${total.toFixed(2)}</span>
-              </div>
-              <div class="cart-actions">
-                <button class="btn-secondary" onclick="cartPage.clearCart()">Clear Cart</button>
-                <button class="btn-primary" onclick="alert('Checkout functionality coming soon!')">Checkout</button>
-              </div>
+      function renderCourses() {
+        if (courses.length === 0) {
+          cartContent.innerHTML = `
+            <div class="cart-empty">
+              <div class="cart-empty-icon">🛒</div>
+              <h2>Your cart is empty</h2>
+              <p>Start exploring our courses and add some to your cart!</p>
+              <a href="./courses.html" class="checkout-btn" style="display: inline-block; padding: 15px 40px; text-decoration: none; width: auto;">Browse Courses</a>
             </div>
           `;
+          return;
+        }
+
+        cartBody.innerHTML = "";
+        let total = 0;
+
+        courses.forEach((course) => {
+          let tr = document.createElement("tr");
+
+          tr.innerHTML = `
+            <td><img src="${course.image}"></td>
+            <td>${course.title}</td>
+            <td>$${course.price.toFixed(2)}</td>
+            <td class="remove-btn">×</td>
+          `;
+
+          tr.querySelector(".remove-btn").addEventListener("click", () => {
+            removeCourse(course.id);
+          });
+
+          cartBody.appendChild(tr);
+          total += course.price;
+        });
+
+        totalPriceSpan.innerText = `$${total.toFixed(2)}`;
+        updateCartCount();
+      }
+
+      function removeCourse(id) {
+        courses = courses.filter((c) => c.id !== id);
+        sessionStorage.setItem("edunityCart", JSON.stringify(courses));
+        renderCourses();
+      }
+
+      function updateCartCount() {
+        const cartCountElement = document.getElementById("cartCount");
+        if (cartCountElement) {
+          cartCountElement.textContent = courses.length;
         }
       }
 
-      let cartPage;
-      document.addEventListener("DOMContentLoaded", () => {
-        cartPage = new CartPage();
-      });
+      renderCourses();
     </script>
   </body>
 </html>
