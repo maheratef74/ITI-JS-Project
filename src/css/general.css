@@ -1,0 +1,50 @@
+/* ========== GENERAL STYLES - Applied to all pages ========== */
+
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #6c5ce7 0%, #8b7fd9 100%);
+  border-radius: 10px;
+  border: 2px solid #f1f1f1;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #5b4bc4 0%, #7a6cc8 100%);
+  border-color: #e0e0e0;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #4a3aa3 0%, #6959b7 100%);
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #6c5ce7 #f1f1f1;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection Color */
+::selection {
+  background-color: #6c5ce7;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: #6c5ce7;
+  color: #ffffff;
+}
