@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edunity - Achieving Your Dreams Through Education</title>
+    <link rel="stylesheet" href="../css/home.css" />
+  </head>
+  <body>
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+      <div class="search-box">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Search courses, pages, blog..."
+        />
+        <button class="search-close" id="searchClose">×</button>
+      </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+      <div class="cart-content">
+        <div class="cart-header">
+          <h2>🛒 Shopping Cart</h2>
+          <button class="cart-close" id="cartModalClose">×</button>
+        </div>
+        <div id="cartItems"></div>
+        <div class="cart-total" id="cartTotal" style="display: none">
+          <h3>Total: <span id="cartTotalAmount">$0.00</span></h3>
+        </div>
+        <div class="cart-actions" id="cartActions" style="display: none">
+          <button class="cart-btn cart-btn-clear" id="clearCartBtn">
+            Clear Cart
+          </button>
+          <button class="cart-btn cart-btn-checkout">Checkout</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Header Navigation -->
+    <header class="header-nav">
+      <a href="home.html" class="logo">
+        <svg
+          class="logo-icon"
+          viewBox="0 0 40 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M20 5L5 12.5V27.5L20 35L35 27.5V12.5L20 5Z" fill="#6C5CE7" />
+          <path
+            d="M20 5L20 35M20 5L35 12.5M20 5L5 12.5"
+            stroke="#fff"
+            stroke-width="2"
+          />
+          <path d="M5 12.5L20 20L35 12.5" stroke="#fff" stroke-width="2" />
+        </svg>
+        <span>edunity</span>
+      </a>
+
+      <nav>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item">
+            <a
+              style="text-decoration: none"
+              href="home.html"
+              class="nav-link active"
+            >
+              Home
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="aboutUs.html" class="nav-link">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-dropdown="courses">
+              Courses <span class="arrow">▼</span>
+            </a>
+            <div class="dropdown">
+              <a href="courses.html" class="dropdown-item">All Courses</a>
+              <a href="#" class="dropdown-item">Course Style 1</a>
+              <a href="#" class="dropdown-item">Course Style 2</a>
+              <a href="courseDetails.html" class="dropdown-item"
+                >Course Details</a
+              >
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-dropdown="pages">
+              Pages <span class="arrow">▼</span>
+            </a>
+            <div class="dropdown">
+              <a href="aboutUs.html" class="dropdown-item">About</a>
+              <a href="#" class="dropdown-item">Instructors</a>
+              <a href="#" class="dropdown-item">Events</a>
+              <a href="#" class="dropdown-item">Pricing</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" data-dropdown="blog">
+              Blog <span class="arrow">▼</span>
+            </a>
+            <div class="dropdown">
+              <a href="#" class="dropdown-item">Blog Grid</a>
+              <a href="#" class="dropdown-item">Blog List</a>
+              <a href="#" class="dropdown-item">Blog Details</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a href="#contact" class="nav-link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="nav-icons">
+        <button class="icon-btn" id="searchBtn">🔍</button>
+        <button class="icon-btn" id="cartBtn">
+          🛒
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <div class="auth-buttons" id="authButtons">
+          <a href="login.html" class="btn-login">Login</a>
+          <a href="registeration.html" class="btn-signup">Sign Up</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <svg class="decoration circles" viewBox="0 0 60 60">
+        <circle
+          cx="15"
+          cy="15"
+          r="8"
+          fill="none"
+          stroke="#FF6B6B"
+          stroke-width="2"
+          opacity="0.6"
+        />
+        <circle
+          cx="40"
+          cy="20"
+          r="6"
+          fill="none"
+          stroke="#FF6B6B"
+          stroke-width="2"
+          opacity="0.6"
+        />
+        <circle
+          cx="25"
+          cy="40"
+          r="5"
+          fill="none"
+          stroke="#FF6B6B"
+          stroke-width="2"
+          opacity="0.6"
+        />
+        <circle
+          cx="45"
+          cy="45"
+          r="7"
+          fill="none"
+          stroke="#FF6B6B"
+          stroke-width="2"
+          opacity="0.6"
+        />
+      </svg>
+
+      <svg class="decoration wave" viewBox="0 0 50 30">
+        <path
+          d="M0 15 Q 12.5 5, 25 15 T 50 15"
+          fill="none"
+          stroke="#6C5CE7"
+          stroke-width="2"
+          opacity="0.6"
+        />
+        <path
+          d="M0 20 Q 12.5 10, 25 20 T 50 20"
+          fill="none"
+          stroke="#6C5CE7"
+          stroke-width="2"
+          opacity="0.6"
+        />
+      </svg>
+
+      <svg class="decoration star" viewBox="0 0 70 70">
+        <path
+          d="M35 5 L40 25 L60 30 L40 35 L35 55 L30 35 L10 30 L30 25 Z"
+          fill="#6C5CE7"
+          opacity="0.6"
+        />
+      </svg>
+
+      <svg class="decoration curve" viewBox="0 0 60 40">
+        <path
+          d="M5 35 Q 30 5, 55 35"
+          fill="none"
+          stroke="#FF6B6B"
+          stroke-width="3"
+          opacity="0.6"
+        />
+      </svg>
+
+      <div class="hero-content">
+        <div class="hero-text">
+          <span class="hero-label">100% SATISFACTION GUARANTEE</span>
+          <h1 class="hero-title">
+            Achieving Your Dreams Through
+            <span class="highlight">Education</span>
+          </h1>
+          <p class="hero-description">
+            We are experienced in educationl platform and skilled strategies for
+            the success of our online learning.
+          </p>
+          <div class="hero-buttons">
+            <button
+              class="btn btn-primary"
+              onclick="window.location.href='courses.html'"
+            >
+              Learn More
+            </button>
+            <button class="btn btn-outline">View Courses</button>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h3>200+</h3>
+              <p>Instructor</p>
+              <div class="instructor-avatars">
+                <img src="https://i.pravatar.cc/40?img=1" alt="Instructor 1" />
+                <img src="https://i.pravatar.cc/40?img=2" alt="Instructor 2" />
+                <img src="https://i.pravatar.cc/40?img=3" alt="Instructor 3" />
+                <img src="https://i.pravatar.cc/40?img=4" alt="Instructor 4" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img
+            src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&h=700&fit=crop"
+            alt="Students studying together"
+          />
+          <div class="hero-badge">
+            <span class="badge-number">200+</span>
+            <span class="badge-text">Instructor</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+      <div class="section-header-center">
+        <p class="section-tag">TOP CLASS COURSES</p>
+        <h2 class="section-title">Browse By Categories</h2>
+      </div>
+      <div class="categories-grid">
+        <div class="category-card">
+          <div
+            class="category-icon"
+            style="
+              background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            "
+          >
+            💼
+          </div>
+          <h3 class="category-title">Business Management</h3>
+        </div>
+        <div class="category-card">
+          <div
+            class="category-icon"
+            style="
+              background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            "
+          >
+            🎨
+          </div>
+          <h3 class="category-title">Art & Design</h3>
+        </div>
+        <div class="category-card">
+          <div
+            class="category-icon"
+            style="
+              background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            "
+          >
+            🌱
+          </div>
+          <h3 class="category-title">Personal Development</h3>
+        </div>
+        <div class="category-card">
+          <div
+            class="category-icon"
+            style="
+              background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%);
+            "
+          >
+            📐
+          </div>
+          <h3 class="category-title">UI/UX Design</h3>
+        </div>
+        <div class="category-card">
+          <div
+            class="category-icon"
+            style="
+              background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+            "
+          >
+            ✏️
+          </div>
+          <h3 class="category-title">Graphic Design</h3>
+        </div>
+        <div class="category-card">
+          <div
+            class="category-icon"
+            style="
+              background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+            "
+          >
+            📱
+          </div>
+          <h3 class="category-title">Digital Marketing</h3>
+        </div>
+        <div class="category-card">
+          <div
+            class="category-icon"
+            style="
+              background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            "
+          >
+            🗄️
+          </div>
+          <h3 class="category-title">Database Dev</h3>
+        </div>
+        <div class="category-card">
+          <div
+            class="category-icon"
+            style="
+              background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+            "
+          >
+            📦
+          </div>
+          <h3 class="category-title">Product Design</h3>
+        </div>
+        <div class="category-card">
+          <div
+            class="category-icon"
+            style="
+              background: linear-gradient(135deg, #fdcbf1 0%, #e6dee9 100%);
+            "
+          >
+            📹
+          </div>
+          <h3 class="category-title">Video & Photography</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses-section">
+      <div class="section-header-center">
+        <p class="section-tag">TOP POPULAR COURSE</p>
+        <h2 class="section-title">Edunity Course Student Can Join With Us.</h2>
+      </div>
+      <div class="courses-grid" id="coursesGrid">
+        <!-- Courses will be loaded here dynamically -->
+      </div>
+      <div class="view-all-container">
+        <button
+          class="btn btn-primary"
+          onclick="window.location.href='courses.html'"
+        >
+          View All Courses →
+        </button>
+      </div>
+    </section>
+
+    <!-- Join With Us Section -->
+    <section class="join-section">
+      <div class="section-header-center">
+        <p class="section-tag">CREATIVE COURSE</p>
+        <h2 class="section-title">Educom Course Student Can Join With Us.</h2>
+      </div>
+      <div class="join-grid">
+        <div class="join-card">
+          <img
+            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=300&fit=crop"
+            alt="Students collaborating"
+            class="join-image"
+          />
+          <div class="join-content">
+            <span class="join-category">Business</span>
+            <h3 class="join-title">Become A Product Manager</h3>
+          </div>
+        </div>
+        <div class="join-card">
+          <img
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&h=300&fit=crop"
+            alt="Student studying"
+            class="join-image"
+          />
+          <div class="join-content">
+            <span class="join-category">Design</span>
+            <h3 class="join-title">Introduction to User Experience Design</h3>
+          </div>
+        </div>
+        <div class="join-card">
+          <img
+            src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&h=300&fit=crop"
+            alt="Students in classroom"
+            class="join-image"
+          />
+          <div class="join-content">
+            <span class="join-category">Development</span>
+            <h3 class="join-title">Full Web Development From Scratch</h3>
+          </div>
+        </div>
+      </div>
+      <div class="join-cta">
+        <button class="btn btn-primary btn-large">Become a Student</button>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="section-header-center">
+        <p class="section-tag">STUDENTS TESTIMONIAL</p>
+        <h2 class="section-title">What Our Students Say About Us</h2>
+      </div>
+      <div class="testimonials-carousel">
+        <button class="carousel-btn carousel-prev" id="carouselPrev">‹</button>
+        <div class="testimonials-container" id="testimonialsContainer">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "The courses are incredibly well-structured and the instructors
+              are top-notch. I've learned so much and advanced my career
+              significantly. Highly recommend Edunity to anyone looking to
+              upskill!"
+            </p>
+            <div class="testimonial-author">
+              <img
+                src="https://i.pravatar.cc/80?img=5"
+                alt="Sarah Johnson"
+                class="testimonial-avatar"
+              />
+              <div class="testimonial-info">
+                <h4 class="testimonial-name">Sarah Johnson</h4>
+                <p class="testimonial-role">Web Developer</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "As a beginner, I was nervous about learning design, but the
+              step-by-step approach made it easy to follow. The community
+              support is amazing, and I feel confident in my new skills!"
+            </p>
+            <div class="testimonial-author">
+              <img
+                src="https://i.pravatar.cc/80?img=8"
+                alt="Michael Chen"
+                class="testimonial-avatar"
+              />
+              <div class="testimonial-info">
+                <h4 class="testimonial-name">Michael Chen</h4>
+                <p class="testimonial-role">UI/UX Designer</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "I've tried many online learning platforms, but Edunity stands
+              out. The quality of content, instructor expertise, and practical
+              projects make it worth every penny. My career has transformed!"
+            </p>
+            <div class="testimonial-author">
+              <img
+                src="https://i.pravatar.cc/80?img=9"
+                alt="Emily Rodriguez"
+                class="testimonial-avatar"
+              />
+              <div class="testimonial-info">
+                <h4 class="testimonial-name">Emily Rodriguez</h4>
+                <p class="testimonial-role">Marketing Specialist</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "The flexibility of learning at my own pace while having access to
+              expert instructors is perfect for my busy schedule. The courses
+              are comprehensive and truly valuable for professional growth."
+            </p>
+            <div class="testimonial-author">
+              <img
+                src="https://i.pravatar.cc/80?img=12"
+                alt="David Thompson"
+                class="testimonial-avatar"
+              />
+              <div class="testimonial-info">
+                <h4 class="testimonial-name">David Thompson</h4>
+                <p class="testimonial-role">Business Analyst</p>
+              </div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">
+              "Outstanding platform! The instructors are passionate and
+              knowledgeable. I appreciate the real-world projects and the
+              certificate I received has already helped me land a better job.
+              Thank you Edunity!"
+            </p>
+            <div class="testimonial-author">
+              <img
+                src="https://i.pravatar.cc/80?img=15"
+                alt="Jessica Williams"
+                class="testimonial-avatar"
+              />
+              <div class="testimonial-info">
+                <h4 class="testimonial-name">Jessica Williams</h4>
+                <p class="testimonial-role">Graphic Designer</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-btn carousel-next" id="carouselNext">›</button>
+      </div>
+      <div class="carousel-dots" id="carouselDots"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+      <div class="footer-top">
+        <div class="footer-contact-item">
+          <div class="contact-icon">📍</div>
+          <div class="contact-info">
+            <h4>1920 × 2047.87</h4>
+            <p>1925 Boggess Street</p>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-info">
+            <h4>CALL US</h4>
+            <p>(00) 875 784 568</p>
+          </div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-info">
+            <h4>MAIL US</h4>
+            <p>info@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-main">
+        <div class="footer-content">
+          <div class="footer-about">
+            <h3>
+              <svg width="30" height="30" viewBox="0 0 40 40" fill="none">
+                <path
+                  d="M20 5L5 12.5V27.5L20 35L35 27.5V12.5L20 5Z"
+                  fill="#6C5CE7"
+                />
+              </svg>
+              edunity
+            </h3>
+            <p>
+              Interdum velit laoreet id donec ultrices tincidunt arcu. Tincidunt
+              tortor aliqua facilisi cras fermentum odio eu.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-link">f</a>
+              <a href="#" class="social-link">t</a>
+              <a href="#" class="social-link">in</a>
+              <a href="#" class="social-link">📷</a>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h4>Our Services:</h4>
+            <ul class="footer-links">
+              <li><a href="#">Web Development</a></li>
+              <li><a href="#">UI/UX Design</a></li>
+              <li><a href="#">Management</a></li>
+              <li><a href="#">Digital Marketing</a></li>
+              <li><a href="#">Blog News</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-column">
+            <h4>Gallery</h4>
+            <div class="gallery-grid">
+              <div class="gallery-item">
+                <img
+                  src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=200&h=200&fit=crop"
+                  alt="Gallery 1"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=200&h=200&fit=crop"
+                  alt="Gallery 2"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=200&h=200&fit=crop"
+                  alt="Gallery 3"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=200&h=200&fit=crop"
+                  alt="Gallery 4"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=200&h=200&fit=crop"
+                  alt="Gallery 5"
+                />
+              </div>
+              <div class="gallery-item">
+                <img
+                  src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?w=200&h=200&fit=crop"
+                  alt="Gallery 6"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-column">
+            <h4>Subscribe</h4>
+            <form class="newsletter-form" id="newsletterForm">
+              <input
+                type="email"
+                class="newsletter-input"
+                placeholder="Enter your email"
+                required
+              />
+              <button type="submit" class="newsletter-btn">
+                SUBSCRIBE NOW
+              </button>
+            </form>
+            <p class="newsletter-message" id="newsletterMessage">
+              ✓ Successfully subscribed!
+            </p>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          Copyright © 2024 <a href="#">edunity</a> || All Rights Reserved
+        </div>
+      </div>
+    </footer>
+
+    <script src="../js/home.js"></script>
+  </body>
+</html>
